@@ -1,7 +1,7 @@
 # ffmpeg_stitch
 
 Since the file size limit on my GoPro is 4GB and long videos can exceed 4GB, a
-single recording is often split into multiple files. This script will
+single recording is often split into multiple files. This bash script will
 concatenate these back into a single file.
 
 ## To-Do
