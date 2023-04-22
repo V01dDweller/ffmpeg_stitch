@@ -51,7 +51,7 @@ recordings:
 - `GX0x0079.MP4`
 
 Since `GX010077.MP4` was a short recording, there is only one file. However,
-the other three were split into multiple files.
+the other three were much longer and split into multiple files.
 
 ### Step 1
 
