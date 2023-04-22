@@ -19,8 +19,8 @@ Copy `stitch` to a directory in your `PATH`, e.g. `~/.local/bin`.
 
 ## Preparation
 
-Copy your GoPro files to your PC. Consider the list of files copied from my
-GoPro:
+Copy your GoPro files to a folder on your PC. Consider the list of files
+copied from my GoPro:
 
 ```txt
 GX010076.MP4
