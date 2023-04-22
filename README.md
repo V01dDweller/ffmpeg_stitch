@@ -83,7 +83,7 @@ recording into it, for example:
 
 ### Step 2
 
-CD into a folder and run `stitch`, e.g.:
+CD into each folder and run `stitch`, e.g.:
 
 ```cmd
 cd GX010079
@@ -162,6 +162,11 @@ GX010079.MP4  GX020079.MP4  GX030079.MP4  GX040079.MP4  final.mp4
 ```
 </details>
 
-A new file named `final.mp4` will be created. Repeat for each folder.
+A new file named `final.mp4` will be created in each folder.
+
+### Step 3 - (optional)
+
+Delete the miltipart files and rename `final.mp4`. I use the filename of the
+first file in the series, e.g. `GX010079.MP4`.
 
 [modeline]: # ( vi: set textwidth=78 colorcolumn=80: )
