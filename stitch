@@ -1,0 +1,8 @@
+#!/bin/bash
+cat /dev/null > files.txt
+for i in *MP4
+do
+  echo "file '$(pwd)/$i'" >> files.txt
+done
+ffmpeg -f concat -safe 0 -i files.txt -c copy final.mp4
+rm files.txt
