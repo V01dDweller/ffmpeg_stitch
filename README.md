@@ -19,7 +19,8 @@ Copy `stitch` to a directory in your `PATH`, e.g. `~/.local/bin`.
 
 ## Preparation
 
-Copy your GoPro files to your PC. Consider the list of files copied from a GoPro:
+Copy your GoPro files to your PC. Consider the list of files copied from my
+GoPro:
 
 ```txt
 GX010076.MP4
@@ -161,6 +162,6 @@ GX010079.MP4  GX020079.MP4  GX030079.MP4  GX040079.MP4  final.mp4
 ```
 </details>
 
-A new file named `final.mp4` will be created.
+A new file named `final.mp4` will be created. Repeat for each folder.
 
 [modeline]: # ( vi: set textwidth=78 colorcolumn=80: )
