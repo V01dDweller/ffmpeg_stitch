@@ -1,8 +1,33 @@
-#!/bin/bash
-cat /dev/null > files.txt
-for i in *MP4
+#!/bin/env bash
+for i in $(find . -type f -iname '*MP4' -exec basename {} \; | awk '{print substr($1,5)}' | sort -u)
 do
-  echo "file '$(pwd)/$i'" >> files.txt
+  CURRENT_FILE="GX01$i"
+  SEGMENT_COUNT=$(find . -type f -iname "GX*$i" | wc -l)
+
+  echo "File: $CURRENT_FILE"
+  echo "------------------"
+  echo ""
+  if [ "$SEGMENT_COUNT" -gt 1 ]
+  then
+    echo "Multiple segments found, merging..."
+    if [ ! -d "merged" ]
+    then
+      echo "Creating 'merged' directory..."
+      mkdir merged
+    fi
+    cat /dev/null > filelist.txt
+    for j in GX*"$i"
+    do
+      echo "file '$(pwd)/$j'" >> filelist.txt
+    done
+    ffmpeg -f concat -safe 0 -i filelist.txt -c copy merged/"$CURRENT_FILE"
+  else
+    echo "Only one segment found:"
+  fi
+  ls GX*"$i"
+  echo "$FILE_LIST"
+  echo ""
+  echo "File segments: $SEGMENT_COUNT"
+  echo ""
 done
-ffmpeg -f concat -safe 0 -i files.txt -c copy final.mp4
-rm files.txt
+rm filelist.txt
