@@ -25,7 +25,6 @@ do
     echo "Only one segment found:"
   fi
   ls GX*"$i"
-  echo "$FILE_LIST"
   echo ""
   echo "File segments: $SEGMENT_COUNT"
   echo ""
