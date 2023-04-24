@@ -22,7 +22,7 @@ do
     done
     ffmpeg -f concat -safe 0 -i filelist.txt -c copy merged/"$CURRENT_FILE"
   else
-    echo "Only one segment found:"
+    echo "Only one segment found, skipping:"
   fi
   ls GX*"$i"
   echo ""
