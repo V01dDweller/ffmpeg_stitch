@@ -17,8 +17,6 @@ Copy `stitch` to a directory in your `PATH`, e.g. `~/.local/bin`.
 Consider the list of `.MP4` files copied from a GoPro:
 
 ```txt
-bash-5.0$ ls -lh
-total 55G
 -rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:13 GX010076.MP4
 -rw-r----- 1 v01ddweller v01ddweller 7.3M Apr  7 17:27 GX010077.MP4
 -rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 10:14 GX010078.MP4
@@ -53,9 +51,9 @@ recording into a single file and place them in the `merged` directory. Thus
 from each multi-part, recording the following would be created:
 
 ```txt
-./merged/GX010076.MP4
-./merged/GX010078.MP4
-./merged/GX010079.MP4
+-rwxrwxrwx 1 v01ddweller v01ddweller 30G Apr 10 11:17 ./merged/GX010076.MP4
+-rwxrwxrwx 1 v01ddweller v01ddweller 14G Apr 18 18:42 ./merged/GX010078.mp4
+-rwxrwxrwx 1 v01ddweller v01ddweller 12G Apr 18 18:44 ./merged/GX010079.mp4
 ```
 
 Since it was very short, `GX010077.MP4` was skipped.
