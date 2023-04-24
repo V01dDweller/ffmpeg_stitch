@@ -12,32 +12,33 @@ Install [ffmpeg](https://ffmpeg.org/).
 
 Copy `stitch` to a directory in your `PATH`, e.g. `~/.local/bin`.
 
-## Preparation
+## What this does
 
-Copy your GoPro files to a folder on your PC. Consider the list of files
-copied from my GoPro:
+Consider the list of `.MP4` files copied from a GoPro:
 
 ```txt
-GX010076.MP4
-GX010077.MP4
-GX010078.MP4
-GX010079.MP4
-GX020076.MP4
-GX020078.MP4
-GX020079.MP4
-GX030076.MP4
-GX030078.MP4
-GX030079.MP4
-GX040076.MP4
-GX040078.MP4
-GX040079.MP4
-GX050076.MP4
-GX060076.MP4
-GX070076.MP4
-GX080076.MP4
+bash-5.0$ ls -lh
+total 55G
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:13 GX010076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 7.3M Apr  7 17:27 GX010077.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 10:14 GX010078.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 10:49 GX010079.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:22 GX020076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 10:23 GX020078.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 10:58 GX020079.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:31 GX030076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 10:32 GX030078.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr 18 11:07 GX030079.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:40 GX040076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 2.2G Apr 18 10:37 GX040078.MP4
+-rw-r----- 1 v01ddweller v01ddweller 758M Apr 18 11:09 GX040079.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:48 GX050076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 18:57 GX060076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.8G Apr  7 19:06 GX070076.MP4
+-rw-r----- 1 v01ddweller v01ddweller 3.0G Apr  7 19:13 GX080076.MP4
 ```
 
-Using the last two digits of the file names, we can see that there are four
+From the last two digits of the file names, we can see that there are four
 recordings:
 
 - `GX0x0076.MP4`
@@ -45,18 +46,19 @@ recordings:
 - `GX0x0078.MP4`
 - `GX0x0079.MP4`
 
-Since `GX010077.MP4` was a short recording, there is only one file. However,
-the other three were much longer and thus were split into multiple files. The
-script will concatenate these files together and place them in the `merged`
-directory, e.g.:
+Since `GX010077.MP4` was very short, that recording spans only one file.
+However, the other three were much longer and thus were split into multiple
+files. The script will create a `merged` directory, join each multi-part
+recording into a single file and place them in the `merged` directory. Thus
+from each multi-part, recording the following would be created:
 
 ```txt
-GX010076.MP4
-GX010078.MP4
-GX010079.MP4
+./merged/GX010076.MP4
+./merged/GX010078.MP4
+./merged/GX010079.MP4
 ```
 
-`GX010077.MP4` was only a single file, thus no concatenation was needed.
+Since it was very short, `GX010077.MP4` was skipped.
 
 ### Usage
 
@@ -71,6 +73,8 @@ stitch
 <summary>Sample output</summary>
 
 ```txt
+bash-5.0$ stitch
+
 File: GX010076.MP4
 ------------------
 
@@ -287,11 +291,6 @@ File segments: 4
 ```
 </details>
 
-A new file named `final.mp4` will be created in each folder.
-
-### Step 3 - (optional)
-
-Delete the miltipart files and rename `final.mp4`. I use the filename of the
-first file in the series, e.g. `GX010079.MP4`.
+The new merged files will be in the `merged` directory.
 
 [modeline]: # ( vi: set textwidth=78 colorcolumn=80: )
